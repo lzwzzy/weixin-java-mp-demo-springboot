@@ -10,4 +10,4 @@ wechat:
     token: lzwzzy0602
     aesKey:
 server:
-  port: 8081
+  port: 8080
