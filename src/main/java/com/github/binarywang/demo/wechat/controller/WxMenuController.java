@@ -56,7 +56,7 @@ public class WxMenuController implements WxMpMenuService {
     WxMenuButton button2 = new WxMenuButton();
     button2.setType(MenuButtonType.VIEW);
     button2.setName("柠檬iot");
-    button2.setUrl("http://139.199.24.190:8080");
+    button2.setUrl("http://lemoniot.viphk.ngrok.org");
 
     WxMenuButton button3 = new WxMenuButton();
     button3.setName("菜单");
