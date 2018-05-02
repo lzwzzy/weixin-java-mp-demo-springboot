@@ -41,6 +41,8 @@ public class WechatMpConfiguration {
   @Autowired
   private MsgHandler msgHandler;
   @Autowired
+  private DeviceMsgHandler deviceMsgHandler;
+  @Autowired
   private UnsubscribeHandler unsubscribeHandler;
   @Autowired
   private SubscribeHandler subscribeHandler;
@@ -122,10 +124,18 @@ public class WechatMpConfiguration {
     newRouter.rule().async(false).msgType(XmlMsgType.EVENT)
         .event(EventType.SCAN).handler(this.getScanHandler()).end();
 
+    //设备事件
+    newRouter.rule().async(false).msgType(XmlMsgType.DEVICE_EVENT)
+            .handler(this.getDeviceMsgHandler()).end();
+
     // 默认
     newRouter.rule().async(false).handler(this.getMsgHandler()).end();
 
     return newRouter;
+  }
+
+  protected DeviceMsgHandler getDeviceMsgHandler() {
+    return this.deviceMsgHandler;
   }
 
   protected MenuHandler getMenuHandler() {
